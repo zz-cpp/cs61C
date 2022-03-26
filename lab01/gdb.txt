@@ -1,9 +1,11 @@
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
+1. run <argv>;
+2. break <content>; it can be name of function and number of row.
+3. next : n; step : s;
+4. step : s;
+5. s or n
+6. print variable_name
+7. display/fmt expression
+8. info locals 
+9. ctr-c q ctr-z:
+
+
