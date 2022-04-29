@@ -1,0 +1,19 @@
+
+ add t1, s0, x0      # load the address of the array of current node into t1    65
+ wrong:
+    need to use lw
+
+add t1, t1, t0      # offset the array address by the count     68
+wrong: 
+    that offset the array address need to multiply the size of type
+
+
+jalr s1             # call the function on that value.      71
+wrong:
+    must meet the convention of calling function like saving t1,t0 like save t1
+
+la a0, 8(s0)        # load the address of the next node into a0     77
+wrong:
+
+
+

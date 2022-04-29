@@ -77,6 +77,29 @@ main:
 # Think: why might having a1 be useful?
 f:
     # YOUR CODE GOES HERE!
+    # propigue
+    addi sp,sp,-8
+    sw s0,0(sp)
+    sw s1,4(sp)
+    sw ra,8(sp)
+    
+    mv s0,a0
+    mv s1,a1
+    
+    # add bias with 
+    addi s0,zero,3
+    # comclude the address
+    li t1,4  
+    mul s0,t1,s0
+    add s1,s0,s1
+    # return value
+    lw a0,0(s1)
+    
+
+    # epilogue
+    lw s0,0(sp)
+    lw s1,4(sp)
+    lw s2,8(sp)
 
     jr ra               # Always remember to jr ra after your function!
 

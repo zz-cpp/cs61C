@@ -62,20 +62,59 @@ map:
     # - 4 for the size of the array
     # - 4 more for the pointer to the next node
 mapLoop:
-    add t1, s0, x0      # load the address of the array of current node into t1
+    # 1. add t1, s0, x0      # load the address of the array of current node into t1
+    # begin
+    lw t1,0(s0)
+    # end
     lw t2, 4(s0)        # load the size of the node's array into t2
 
-    add t1, t1, t0      # offset the array address by the count
-    lw a0, 0(t1)        # load the value at that address into a0
+    # 2. add t1, t1, t0      # offset the array address by the count
+    # begin
+    addi t3,zero,4
+    mul t3,t3,t0
+    add t4,t3,t1
+    # end
 
+    # 3. lw a0, 0(t1)        # load the value at that address into a0
+    # begin
+        lw a0,0(t4)
+    # end
+
+    # 4. save
+    # begin
+    addi sp,sp,-12
+    sw t0,0(sp)
+    sw t4,4(sp)
+    sw t2,8(sp)
+    # end
     jalr s1             # call the function on that value.
+    # begin
+    lw t0,0(sp)
+    lw t4,4(sp)
+    lw t2,8(sp)
+    addi sp,sp,12
+    # end
 
-    sw a0, 0(t1)        # store the returned value back into the array
+    # 5. sw a0, 0(t1)        # store the returned value back into the array
+    # begin
+    sw a0,0(t4)
+    # end
     addi t0, t0, 1      # increment the count
     bne t0, t2, mapLoop # repeat if we haven't reached the array size yet
 
-    la a0, 8(s0)        # load the address of the next node into a0
-    lw a1, 0(s1)        # put the address of the function back into a1 to prepare for the recursion
+    # 6.la a0, 8(s0)        # load the address of the next node into a0
+    # begin
+    lw a0,8(s0)
+    # end
+    # note:
+    # the pointer is a adress
+    # when you pass through a pointer as a variable in fact you give it a value of address in memory
+    # 7. lw a1, 0(s1)        # put the address of the function back into a1 to prepare for the recursion
+    # begin
+    mv a1,s1
+    # end
+    
+
 
     jal  map            # recurse
 done:
