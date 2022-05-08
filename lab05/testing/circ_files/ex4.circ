@@ -47,44 +47,44 @@ This file is intended to be loaded by Logisim-evolution (https://github.com/reds
   <lib desc="#I/O" name="5"/>
   <lib desc="#HDL-IP" name="6">
     <tool name="VHDL Entity">
-      <a name="content">--------------------------------------------------------------------------------
--- HEIG-VD, institute REDS, 1400 Yverdon-les-Bains
--- Project :
--- File    :
--- Autor   :
--- Date    :
---
---------------------------------------------------------------------------------
--- Description :
---
---------------------------------------------------------------------------------
-
-library ieee;
-  use ieee.std_logic_1164.all;
-  --use ieee.numeric_std.all;
-
-entity VHDL_Component is
-  port(
-  ------------------------------------------------------------------------------
-  --Insert input ports below
-    horloge_i  : in  std_logic;                    -- input bit example
-    val_i      : in  std_logic_vector(3 downto 0); -- input vector example
-  ------------------------------------------------------------------------------
-  --Insert output ports below
-    max_o      : out std_logic;                    -- output bit example
-    cpt_o      : out std_logic_Vector(3 downto 0)  -- output vector example
-    );
-end VHDL_Component;
-
---------------------------------------------------------------------------------
---Complete your VHDL description below
-architecture type_architecture of VHDL_Component is
-
-
-begin
-
-
-end type_architecture;
+      <a name="content">--------------------------------------------------------------------------------&#13;
+-- HEIG-VD, institute REDS, 1400 Yverdon-les-Bains&#13;
+-- Project :&#13;
+-- File    :&#13;
+-- Autor   :&#13;
+-- Date    :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+-- Description :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+library ieee;&#13;
+  use ieee.std_logic_1164.all;&#13;
+  --use ieee.numeric_std.all;&#13;
+&#13;
+entity VHDL_Component is&#13;
+  port(&#13;
+  ------------------------------------------------------------------------------&#13;
+  --Insert input ports below&#13;
+    horloge_i  : in  std_logic;                    -- input bit example&#13;
+    val_i      : in  std_logic_vector(3 downto 0); -- input vector example&#13;
+  ------------------------------------------------------------------------------&#13;
+  --Insert output ports below&#13;
+    max_o      : out std_logic;                    -- output bit example&#13;
+    cpt_o      : out std_logic_Vector(3 downto 0)  -- output vector example&#13;
+    );&#13;
+end VHDL_Component;&#13;
+&#13;
+--------------------------------------------------------------------------------&#13;
+--Complete your VHDL description below&#13;
+architecture type_architecture of VHDL_Component is&#13;
+&#13;
+&#13;
+begin&#13;
+&#13;
+&#13;
+end type_architecture;&#13;
 </a>
     </tool>
   </lib>
@@ -155,28 +155,67 @@ end TCL_Generic;
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="circuitnamedbox" val="true"/>
     <a name="circuitvhdlpath" val=""/>
-    <wire from="(610,220)" to="(630,220)"/>
-    <wire from="(610,290)" to="(630,290)"/>
-    <wire from="(210,220)" to="(230,220)"/>
+    <wire from="(290,230)" to="(290,300)"/>
+    <wire from="(380,210)" to="(630,210)"/>
+    <wire from="(280,200)" to="(310,200)"/>
+    <wire from="(330,300)" to="(360,300)"/>
+    <wire from="(310,290)" to="(360,290)"/>
+    <wire from="(210,220)" to="(260,220)"/>
+    <wire from="(260,200)" to="(260,220)"/>
+    <wire from="(280,210)" to="(280,230)"/>
+    <wire from="(320,190)" to="(330,190)"/>
+    <wire from="(280,230)" to="(290,230)"/>
+    <wire from="(290,300)" to="(300,300)"/>
+    <wire from="(380,290)" to="(620,290)"/>
+    <wire from="(280,190)" to="(320,190)"/>
+    <wire from="(320,280)" to="(360,280)"/>
+    <wire from="(290,230)" to="(330,230)"/>
+    <wire from="(310,200)" to="(310,290)"/>
+    <wire from="(320,190)" to="(320,280)"/>
     <comp lib="0" loc="(210,220)" name="Pin">
       <a name="width" val="8"/>
       <a name="label" val="In1"/>
     </comp>
-    <comp lib="0" loc="(630,220)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Out1"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="8" loc="(414,131)" name="Text">
+      <a name="text" val="PUT CIRCUITRY HERE"/>
     </comp>
-    <comp lib="0" loc="(630,290)" name="Pin">
+    <comp lib="1" loc="(380,210)" name="AND Gate"/>
+    <comp lib="0" loc="(260,200)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="2"/>
+    </comp>
+    <comp lib="0" loc="(620,290)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="label" val="Out2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="8" loc="(414,131)" name="Text">
-      <a name="text" val="PUT CIRCUITRY HERE"/>
+    <comp lib="0" loc="(630,210)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Out1"/>
+      <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="0" loc="(380,290)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="2"/>
+    </comp>
+    <comp lib="1" loc="(330,300)" name="NOT Gate"/>
   </circuit>
 </project>
