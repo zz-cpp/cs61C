@@ -1,51 +1,53 @@
 Exercise 1
 	Scenario 1
-		1. 
-		2.
-		3.
+		1. Because stepsize  in bytes is exactly equal to cache size in bytes.
+		2. It is still zero. because the step is all same, and every increase step the index bits are same that is 00. 
+		3. Change Step Size (a1) to 1.
 
 	Scenario 2
-		1.
-		2.
-		3.
-		4.
-		5.
+		1. It's 2.
+		2. It's 3/4. The first is compulsor miss then tree times is hit.
+		3. The block size is 16 byte,the step size is 2 that is 8 byte. one access is compulsory miss. two access is hit. then increase step,the block is still. the three and four is hit.
+		4. The hit rate will be approximate 1. because the first outer loop has loaded all data in array in to cache. so then all loop hit rate is 1.
+		5. When the first access,use all functions to the block element of loading from mermory, whih is needed.
 
 	Scenario 3
-		1.
-		2.
-		3.
-		4.
-		5.
+		1. L1 is 50%. L2 is 0. overall is 0.
+		2. The total is 32. Miss is 16.
+		3. L2 total is 16. L1 check index and tag if missed, then request to L2.
+		4. Rep Count; finished one outer loop,L2 has contain all data and L1 only halily own which is after 8 slots. Again loops,the L1 need first 8 slots where dose not exit to request to L2 and hit on L2. 
+		5. increasing the block numbers will not increase hit rate. because the number of total request will not change. increasing the block size will increase hit rate,as it will decrease the number of request.
 
 Exercise 2
-	ijk:
-	ikj:
-	jik:
-	jki:
-	kij:
-	kji:
+	ijk: n = 1000, 0.882 Gflop/s
+	ikj: n = 1000, 0.093 Gflop/s
+	jik: n = 1000, 0.936 Gflop/s
+	jki: n = 1000, 6.639 Gflop/s
+	kij: n = 1000, 0.101 Gflop/s
+	kji: n = 1000, 4.892 Gflop/s
 
-	1.
-	2.
-	3.
+	1. jki is the best order for best performance. Because it utilizes the locality best that it uses data in A,B,C is all in one-dimensional column-major arrays themselv order and try best to finish all compute for current elements then use new elements.
+	2. ikj is the worst order for worst performance. Because 1) it dosen't try best to finish all compute for continuous elements then use new data. 2) it's elemnts are not full continuous.   
+	3. 1) if the order is arrays themselv order in memory , we always hope fully use all data in the same block then stride to a new block.
+	   2) striding depend a new begining of requesting elements.
 
 Exercise 3
 	Part 1
-		blocksize = 20, n = 100: 
-		blocksize = 20, n = 1000: 
-		blocksize = 20, n = 2000: 
-		blocksize = 20, n = 5000: 
-		blocksize = 20, n = 10000: 
+		blocksize = 20, n = 100: Testing naive transpose: 0.01 milliseconds Testing transpose with blocking: 0.014 milliseconds
+		blocksize = 20, n = 1000: Testing naive transpose: 1.615 milliseconds Testing transpose with blocking: 1.332 milliseconds
+		blocksize = 20, n = 2000: Testing naive transpose: 28.154 milliseconds Testing transpose with blocking: 5.731 milliseconds
+		blocksize = 20, n = 5000: Testing naive transpose: 220.127 milliseconds Testing transpose with blocking: 38.149 milliseconds
+		blocksize = 20, n = 10000: Testing naive transpose: 1058.18 milliseconds Testing transpose with blocking: 206.236 milliseconds
 
-		1.
-		2.
+		1. when n = 1000,2000,...
+		2. I guess if the matrix is enoughly small , regardless of blocking or not ,the cache all hold all data. and the version of blocking performance is low as the time complexity.
 
 	Part 2
-		blocksize = 50, n = 10000:
-		blocksize = 100, n = 10000:
-		blocksize = 500, n = 10000:
-		blocksize = 1000, n = 10000:
-		blocksize = 5000, n = 10000:
+		blocksize = 50, n = 10000: Testing naive transpose: 1022.07 milliseconds Testing transpose with blocking: 179.929 milliseconds
+		blocksize = 100, n = 10000: Testing naive transpose: 1052.96 milliseconds Testing transpose with blocking: 222.67 milliseconds
+		blocksize = 500, n = 10000: Testing naive transpose: 1031.22 milliseconds Testing transpose with blocking: 154.298 milliseconds
+		blocksize = 1000, n = 10000: Testing naive transpose: 1115.91 milliseconds Testing transpose with blocking: 213.965 milliseconds
+		blocksize = 5000, n = 10000: Testing naive transpose: 1034.96 milliseconds Testing transpose with blocking: 931.197 milliseconds
 
-		1.
+		1. it is all increasing as the blocksize is reducing until the blocksize rise by one value and then the performance sundently decline and is very closed to the versention of un-blocking.
+			I guess this is the impact of algorithm.
